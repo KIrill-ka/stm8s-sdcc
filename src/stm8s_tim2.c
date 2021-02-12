@@ -43,7 +43,6 @@ static void TI3_Config(uint8_t TIM2_ICPolarity, uint8_t TIM2_ICSelection, uint8_
   * @addtogroup TIM2_Public_Functions
   * @{
   */
-
 /**
   * @brief  Deinitializes the TIM2 peripheral registers to their default reset values.
   * @param  None
@@ -80,6 +79,7 @@ void TIM2_DeInit(void)
   TIM2->SR1 = (uint8_t)TIM2_SR1_RESET_VALUE;
 }
 
+#if 0
 /**
   * @brief  Initializes the TIM2 Time Base Unit according to the specified parameters.
   * @param    TIM2_Prescaler specifies the Prescaler from TIM2_Prescaler_TypeDef.
@@ -253,6 +253,7 @@ void TIM2_ICInit(TIM2_Channel_TypeDef TIM2_Channel,
     TIM2_SetIC3Prescaler(TIM2_ICPrescaler);
   }
 }
+#endif
 
 /**
   * @brief  Configures the TIM2 peripheral in PWM Input Mode according to the specified parameters.
@@ -382,7 +383,7 @@ void TIM2_ITConfig(TIM2_IT_TypeDef TIM2_IT, FunctionalState NewState)
     TIM2->IER &= (uint8_t)(~TIM2_IT);
   }
 }
-
+#if 0
 /**
   * @brief  Enables or Disables the TIM2 Update event.
   * @param   NewState new state of the TIM2 peripheral Preload register. This parameter can
@@ -906,7 +907,7 @@ void TIM2_SetCompare3(uint16_t Compare3)
   TIM2->CCR3H = (uint8_t)(Compare3 >> 8);
   TIM2->CCR3L = (uint8_t)(Compare3);
 }
-
+#endif
 /**
   * @brief  Sets the TIM2 Input Capture 1 Prescaler.
   * @param   TIM2_IC1Prescaler specifies the Input Capture prescaler new value
@@ -947,6 +948,7 @@ void TIM2_SetIC2Prescaler(TIM2_ICPSC_TypeDef TIM2_IC2Prescaler)
                           | (uint8_t)TIM2_IC2Prescaler);
 }
 
+#if 0
 /**
   * @brief  Sets the TIM2 Input Capture 3 prescaler.
   * @param   TIM2_IC3Prescaler specifies the Input Capture prescaler new value
@@ -966,7 +968,6 @@ void TIM2_SetIC3Prescaler(TIM2_ICPSC_TypeDef TIM2_IC3Prescaler)
   TIM2->CCMR3 = (uint8_t)((uint8_t)(TIM2->CCMR3 & (uint8_t)(~TIM2_CCMR_ICxPSC))
                           | (uint8_t)TIM2_IC3Prescaler);
 }
-
 /**
   * @brief  Gets the TIM2 Input Capture 1 value.
   * @param  None
@@ -1162,6 +1163,7 @@ void TIM2_ClearITPendingBit(TIM2_IT_TypeDef TIM2_IT)
   /* Clear the IT pending Bit */
   TIM2->SR1 = (uint8_t)(~TIM2_IT);
 }
+#endif
 
 /**
   * @brief  Configure the TI1 as Input.

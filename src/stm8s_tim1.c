@@ -27,7 +27,6 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm8s_tim1.h"
-
 /** @addtogroup STM8S_StdPeriph_Driver
   * @{
   */
@@ -100,6 +99,7 @@ void TIM1_DeInit(void)
   TIM1->SR1   = TIM1_SR1_RESET_VALUE;
 }
 
+#if 0
 /**
   * @brief  Initializes the TIM1 Time Base Unit according to the specified parameters.
   * @param  TIM1_Prescaler specifies the Prescaler value.
@@ -551,6 +551,7 @@ void TIM1_PWMIConfig(TIM1_Channel_TypeDef TIM1_Channel,
     TIM1_SetIC1Prescaler(TIM1_ICPrescaler);
   }
 }
+#endif
 
 /**
   * @brief  Enables or disables the TIM1 peripheral.
@@ -574,6 +575,7 @@ void TIM1_Cmd(FunctionalState NewState)
   }
 }
 
+#if 0
 /**
   * @brief  Enables or disables the TIM1 peripheral Main Outputs.
   * @param  NewState new state of the TIM1 peripheral.
@@ -1914,6 +1916,7 @@ void TIM1_SetIC4Prescaler(TIM1_ICPSC_TypeDef TIM1_IC4Prescaler)
                           (uint8_t)TIM1_IC4Prescaler);
 }
 
+#endif
 /**
   * @brief  Gets the TIM1 Input Capture 1 value.
   * @param  None
@@ -1955,6 +1958,8 @@ uint16_t TIM1_GetCapture2(void)
   /* Get the Capture 2 Register value */
   return (uint16_t)tmpccr2;
 }
+
+#if 0
 
 /**
   * @brief  Gets the TIM1 Input Capture 3 value.
@@ -2065,6 +2070,7 @@ FlagStatus TIM1_GetFlagStatus(TIM1_FLAG_TypeDef TIM1_FLAG)
   }
   return (FlagStatus)(bitstatus);
 }
+#endif
 
 /**
   * @brief  Clears the TIM1’s pending flags.
@@ -2094,6 +2100,7 @@ void TIM1_ClearFlag(TIM1_FLAG_TypeDef TIM1_FLAG)
   TIM1->SR2 = (uint8_t)((uint8_t)(~((uint8_t)((uint16_t)TIM1_FLAG >> 8))) & 
                         (uint8_t)0x1E);
 }
+
 
 /**
   * @brief  Checks whether the TIM1 interrupt has occurred or not.
@@ -2131,6 +2138,8 @@ ITStatus TIM1_GetITStatus(TIM1_IT_TypeDef TIM1_IT)
   }
   return (ITStatus)(bitstatus);
 }
+
+#if 0
 
 /**
   * @brief  Clears the TIM1's interrupt pending bits.
@@ -2315,6 +2324,7 @@ static void TI4_Config(uint8_t TIM1_ICPolarity,
   /* Set the CCE Bit */
   TIM1->CCER2 |=  TIM1_CCER2_CC4E;
 }
+#endif
 
 
 /**

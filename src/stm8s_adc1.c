@@ -65,6 +65,7 @@ void ADC1_DeInit(void)
   ADC1->AWCRL = ADC1_AWCRL_RESET_VALUE;
 }
 
+#if 0
 /**
   * @brief  Initializes the ADC1 peripheral according to the specified parameters
   * @param   ADC1_ConversionMode: specifies the conversion mode
@@ -684,6 +685,7 @@ void ADC1_ClearITPendingBit(ADC1_IT_TypeDef ITPendingBit)
     ADC1->CSR &= (uint8_t)((uint16_t)~(uint16_t)ITPendingBit);
   }
 }
+#endif
 
 /**
   * @}

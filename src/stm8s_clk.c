@@ -44,7 +44,7 @@
   * @addtogroup CLK_Private_Constants
   * @{
   */
-
+#if 0
 CONST uint8_t HSIDivExp[4] = {0, 1, 2, 3}; /*!< Holds the HSI Divider exponents */
 CONST uint8_t CLKPrescTable[8] = {1, 2, 4, 8, 10, 16, 20, 40}; /*!< Holds the different CLK prescaler values */
 
@@ -251,6 +251,7 @@ void CLK_SlowActiveHaltWakeUpCmd(FunctionalState NewState)
     CLK->ICKR &= (uint8_t)(~CLK_ICKR_SWUAH);
   }
 }
+#endif
 
 /**
   * @brief   Enables or disables the specified peripheral CLK.
@@ -294,6 +295,7 @@ void CLK_PeripheralClockConfig(CLK_Peripheral_TypeDef CLK_Peripheral, Functional
   }
 }
 
+#if 0
 /**
   * @brief  configures the Switch from one clock to another
   * @param   CLK_SwitchMode select the clock switch mode.
@@ -742,6 +744,7 @@ void CLK_ClearITPendingBit(CLK_IT_TypeDef CLK_IT)
   }
   
 }
+#endif
 
 /**
   * @}
